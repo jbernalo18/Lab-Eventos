@@ -58,8 +58,62 @@ Usa `.length` para el número total,
  */
 
 
- const botonEnl = document.getElementById('botonEnlaces'); 
+ const botonEnl = document.getElementById('botonEnlaces'); //obtenemos en boton de informacion de enlaces
+ const enlaces = document.querySelectorAll('a'); //obtenemos todos elementos de las etiquetas <a>
+ const totalEnl = enlaces.length; // obtenemos el numero de enlaces
+ const enlace1 = enlaces[0]; //obtenemos la primera etiqueta a que contiene el primer enlace
+ const url1 = enlace1.getAttribute('href'); // obtenemos la url de la primera eqtiqueta obtenida en la linea anterior
+ const enlace3 = enlaces[enlaces.length - 1]; // Obtenemos la ultima etiqueta que conriene el ultumo elemento a que contiene el ultimo enlace
+ const url3 = enlace3.getAttribute('href'); // obtenemos la url de la ultima eqtiqueta obtenida en la linea anterior
 
- botonEnl.addEventListener("click" (e) =>{
-    
+ botonEnl.addEventListener("click", (e) =>{ 
+    alert("Total Enlaces: "+totalEnl + "| Primer enlace: "+url1 + "| Último enlace: "+url3) // imprimimos con alert
  });
+
+ 
+ /*
+ ## Tarea Extra: Manipulación avanzada del DOM
+
+Resuelve los siguientes pasos en orden:
+1. Selecciona la sección con `id="contenedor"`.
+2. Selecciona todos los elementos de la lista con `class="segundo"`.
+3. Selecciona el elemento `li` con `class="tercero"` que esté **dentro de la etiqueta `<ol>`**.
+4. Dale el texto **"¡Hola!"** a la sección con `id="contenedor"`.
+5. Añade la clase `principal` al div con `class="footer"`.
+6. Elimina la clase `principal` del div con `class="footer"`.
+7. Crea un nuevo elemento `li`.
+8. Dale al `li` el texto **"cuatro"**.
+9. Añade el `li` al elemento `ul`.
+
+**Pistas:**
+| # | Paso | Método |
+|---|------|--------|
+| 1 | Seleccionar `#contenedor` | `document.getElementById('contenedor')` |
+| 2 | Seleccionar `.segundo` | `document.querySelectorAll('.segundo')` |
+| 3 | Seleccionar `.tercero` dentro de `ol` | `document.querySelector('ol .tercero')` |
+| 4 | Cambiar texto | `element.textContent = '¡Hola!'` |
+| 5 | Añadir clase | `element.classList.add('principal')` |
+| 6 | Eliminar clase | `element.classList.remove('principal')` |
+| 7 | Crear elemento | `document.createElement('li')` |
+| 8 | Dar texto | `element.textContent = 'cuatro'` |
+| 9 | Añadir al `ul` | `ul.append(elemento)` |
+
+ */
+
+const contenedor = document.getElementById('contenedor'); // obtenemos el contenedor
+const segundos = document.querySelectorAll('.segundo'); //obtenemos segundo elemendo de li
+const terceros = document.querySelector('ol .tercero'); //obtenemos tercero en ol
+contenedor.textContent = '¡Hola!'; // cambiamos el contenido de contenedor
+const footer = document.querySelector('.footer') // obtenemos div de pie de pagina
+footer.classList.add('principal'); // agregamos clase principal a div footer
+footer.classList.remove('principal'); //eliminamos la clase creada
+const nuevoLi = document.createElement('li'); //creamos nuevo elemento li
+nuevoLi.textContent = 'cuatro'; //agregamos contenido a la Li creada
+const ul = document.querySelector('ul'); // seleccionamos la lista ul
+ul.append(nuevoLi); //ingresamos el lemento li a ul
+
+
+
+
+
+
